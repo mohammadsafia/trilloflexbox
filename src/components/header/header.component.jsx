@@ -16,11 +16,11 @@ const Header = () => {
         </button>
       </form>
       <nav className="user-nav">
-        <div className="user-nav__nav__icon-box">
+        <div className="user-nav__icon-box">
           <MdBookmark className="user-nav__icon" />
           <span className="user-nav__notification">7</span>
         </div>
-        <div className="user-nav__nav__icon-box">
+        <div className="user-nav__icon-box">
           <MdForum className="user-nav__icon" />
           <span className="user-nav__notification">13</span>
         </div>
