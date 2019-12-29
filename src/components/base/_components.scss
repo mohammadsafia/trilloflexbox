@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -22,29 +23,36 @@
     width: 90%;
     transition: all 0.2s;
     margin-right: -3.25rem;
+
     &:focus {
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3);
     }
+
     &::-webkit-input-placeholder {
       font-weight: 100;
       color: var(--color-grey-light-4);
     }
   }
-  &__input:focus + &__button {
+
+  &__input:focus+&__button {
     background-color: var(--color-grey-light-3);
   }
+
   &__button {
     border: none;
     background-color: var(--color-grey-light-2);
+
     &:focus {
       outline: none;
     }
+
     &:active {
       transform: translateY(2px);
     }
   }
+
   &__icon {
     padding: 2px;
     height: 2rem;
@@ -59,16 +67,19 @@
   align-self: stretch;
   display: flex;
   align-items: center;
-  & > * {
+
+  &>* {
     padding: 0 2rem;
     cursor: pointer;
     height: 100%;
     display: flex;
     align-items: center;
   }
-  & > *:hover {
+
+  &>*:hover {
     background-color: var(--color-grey-light-2);
   }
+
   &__icon-box {
     position: relative;
   }
@@ -77,6 +88,7 @@
     height: 2.25rem;
     width: 2.25rem;
   }
+
   &__notification {
     font-size: 0.8rem;
     height: 1.75rem;
@@ -107,8 +119,10 @@
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
+
   &__item {
     position: relative;
+
     &:not(:last-child) {
       margin-bottom: 0.5rem;
     }
@@ -133,6 +147,7 @@
     transform: scaleY(1);
     width: 100%;
   }
+
   &__item:active::before {
     background-color: var(--color-primary-light);
   }
@@ -173,6 +188,7 @@
 
 .gallery {
   display: flex;
+
   &__photo {
     width: 100%;
     display: block;
@@ -184,8 +200,9 @@
 
 .overview {
   display: flex;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
   align-items: center;
+
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
@@ -204,14 +221,17 @@
     width: 1.75rem;
     height: 1.75rem;
   }
+
   &__location {
     font-size: 1.2rem;
     display: flex;
     align-items: center;
   }
+
   &__icon--location {
     margin-right: 0.5rem;
   }
+
   &__rating {
     background-color: var(--color-primary);
     color: #fff;
@@ -223,11 +243,13 @@
     justify-content: center;
     flex-direction: column;
   }
+
   &__rating--average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
   }
+
   &__rating--count {
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -247,9 +269,19 @@
   background-color: transparent;
   cursor: pointer;
   transition: all 0.2s;
+
+  & span {
+    margin-left: 3px;
+    transition: all .2s;
+  }
+
   &:hover {
     color: var(--color-grey-dark-1);
     animation: pulsate 1s infinite;
+
+    span {
+      margin-left: 8px;
+    }
   }
 
   &:focus {
@@ -271,5 +303,155 @@
   100% {
     transform: scale(1);
     box-shadow: none;
+  }
+}
+
+///////////////////////////
+//Paragraph
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+
+
+
+
+
+///////////////////////////
+//List
+
+.list {
+  margin: 3rem 0;
+  list-style: none;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: .7rem;
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+
+
+
+
+
+///////////////////////////
+//Recommend
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+  display: flex;
+  align-items: center;
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__photo {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+
+    }
+  }
+}
+
+///////////////////////////
+//Reviews
+
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-dark);
+  padding: 3rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+
+  &__text {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 100;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+  }
+
+  &__user-date {
+    font-size: 1rem;
+    color: var(--color-grey-dark-3);
+  }
+
+  &__rating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    line-height: 1;
+    z-index: 1;
+  }
+
+}
+
+///////////////////////////
+//Call To  Action
+
+.cat {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
   }
 }
