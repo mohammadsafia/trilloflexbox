@@ -13,6 +13,8 @@
   align-items: center;
   justify-content: center;
 
+
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -74,6 +76,10 @@
     height: 100%;
     display: flex;
     align-items: center;
+
+    @media only screen and(max-width:$pb-smallest) {
+      padding: 0 1.5rem;
+    }
   }
 
   &>*:hover {
@@ -120,11 +126,24 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and(max-width:$pb-medium) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and(max-width:$pb-medium) {
+        margin-bottom: 0;
+      }
+    }
+
+    @media only screen and(max-width:$pb-medium) {
+      flex: 1;
     }
   }
 
@@ -163,6 +182,16 @@
     align-items: center;
     z-index: 10;
     position: relative;
+
+    @media only screen and(max-width:$pb-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and(max-width:$pb-small) {
+      flex-direction: column;
+      padding: 1.5rem 1.5rem;
+    }
   }
 
   &__icon {
@@ -170,6 +199,13 @@
     height: 1.75rem;
     fill: currentColor;
     margin-right: 2rem;
+
+    @media only screen and(max-width:$pb-small) {
+      margin-right: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-bottom: .7rem;
+    }
   }
 }
 
@@ -181,6 +217,10 @@
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4);
+
+  @media only screen and(max-width:$pb-medium) {
+    display: none;
+  }
 }
 
 ///////////////////////
@@ -209,6 +249,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and(max-width:$pb-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__stars {
@@ -242,17 +287,29 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    @media only screen and(max-width:$pb-small) {
+      padding: 0 1.5rem;
+    }
   }
 
   &__rating--average {
     font-size: 2.25rem;
     font-weight: 300;
     margin-bottom: -3px;
+
+    @media only screen and(max-width:$pb-small) {
+      font-size: 1.8rem;
+    }
   }
 
   &__rating--count {
     font-size: 0.8rem;
     text-transform: uppercase;
+
+    @media only screen and(max-width:$pb-small) {
+      font-size: .5rem;
+    }
   }
 }
 
@@ -370,9 +427,13 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
 
     }
+  }
+
+  &__friends {
+    display: flex;
   }
 }
 
@@ -386,6 +447,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media only screen and(max-width:$pb-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -444,14 +510,71 @@
 ///////////////////////////
 //Call To  Action
 
-.cat {
+.cta {
   padding: 3.5rem 0;
   text-align: center;
 
+  @media only screen and(max-width:$pb-medium) {
+    padding: 2.5rem 0;
+  }
+
   &__book-now {
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 2.5rem;
+  }
+}
+
+
+
+//////////////////////////////
+//Btn
+
+.btn {
+  font-size: 1.5rem;
+  border: none;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &>* {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all .3s;
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    left: 0;
+    top: -100%;
+    padding: 2rem 0;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
   }
 }
